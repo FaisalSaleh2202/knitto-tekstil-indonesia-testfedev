@@ -1,7 +1,5 @@
-'use client';
-
-import Head from 'next/head';
 import React from 'react';
+import Head from 'next/head';
 import {
   useGetTodosQuery,
   usePaginationTodosQuery,
@@ -10,7 +8,7 @@ import ButtonAddNewTodo from '../components/ButtonAddNewTodo';
 import ReactPaginate from 'react-paginate';
 import Link from 'next/link';
 
-export default function Home(todos: Todo | any) {
+export default function ListTodoSSR(todos: Todo | any) {
   const [page, setPage] = React.useState(0);
   const { data: posts, isLoading } = usePaginationTodosQuery(page);
   const { data: allDataTodo, isLoading: isLoadingAllDataTodo } =
@@ -52,10 +50,10 @@ export default function Home(todos: Todo | any) {
       </Head>
       <main className='overflow-y-hidden h-screen'>
         <div className='flex justify-between'>
-          <h1 className='sm:px-10 px-3 pt-5 text-[24px]'>
+          <h1 className='sm:px-10 px-3 pt-5 text-[24px] underline cursor-pointer'>
             <Link href='/'>Todos List ISR and Revalidate</Link>
           </h1>
-          <h1 className='sm:px-10 px-3 pt-5 text-[24px] underline cursor-pointer'>
+          <h1 className='sm:px-10 px-3 pt-5 text-[24px] cursor-pointer'>
             <Link href='/todo-list-SSR'>Todos List SSR </Link>
           </h1>
         </div>
@@ -83,23 +81,12 @@ export default function Home(todos: Todo | any) {
   );
 }
 
-// export async function getServerSideProps() {
-//   const res = await fetch('https://jsonplaceholder.typicode.com/todos');
-//   const todos = await res.json();
-
-//   return {
-//     props: {
-//       todos,
-//     },
-//   };
-// }
-
-export async function getStaticProps() {
+export async function getServerSideProps() {
   let todos = [];
+
   return {
     props: {
       todos,
     },
-    revalidate: 10, // In seconds
   };
 }
