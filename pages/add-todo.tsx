@@ -1,3 +1,9 @@
+/**
+ * Test 02
+ * Buat form untuk menginput todo ke endpoint [POST]
+    https://jsonplaceholder.typicode.com/todos
+ */
+
 'use client';
 import React from 'react';
 import Head from 'next/head';

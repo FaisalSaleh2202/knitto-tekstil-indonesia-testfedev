@@ -83,17 +83,15 @@ export default function Home(todos: Todo | any) {
   );
 }
 
-// export async function getServerSideProps() {
-//   const res = await fetch('https://jsonplaceholder.typicode.com/todos');
-//   const todos = await res.json();
-
-//   return {
-//     props: {
-//       todos,
-//     },
-//   };
-// }
-
+/**
+ * 
+ * pre-render data todo saat build-time lalu revalidate datanya ketika halaman sudah
+dirender di client
+ pre-render menggunakan strategy ISR (https://nextjs.org/docs/basic-
+features/data-fetching/incremental-static-regeneration)
+ fetch & revalidate di client menggunakan rtkq
+ * 
+ */
 export async function getStaticProps() {
   let todos = [];
   return {

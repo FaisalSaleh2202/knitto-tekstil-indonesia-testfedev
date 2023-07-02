@@ -14,10 +14,15 @@ export const apiSlice = createApi({
   }),
   tagTypes: ['Post'],
   endpoints: (builder) => ({
+    /**
+     * Test 1
+     * Api di fetch menggunakan redux-tookit rtkq (https://redux-toolkit.js.org/rtk-
+     */
     getTodos: builder.query<TodoProps, [] | void>({
       query: () => '/todos',
     }),
     /*
+    Test 4
     Implement pagination, limit data todo untuk menampilkan 10 itemper halaman- api di fetch menggunakan query _start dan _limit (contoh:
     https://jsonplaceholder.typicode.com/todos?_start=0&_limit=10)
     */
@@ -37,7 +42,6 @@ export const apiSlice = createApi({
   }),
 });
 
-// const { data } = apiSlice.useGetTodosQuery();
 export const {
   useGetTodosQuery,
   usePaginationTodosQuery,

@@ -51,10 +51,10 @@ export default function ListTodoSSR(todos: Todo | any) {
       <main className='overflow-y-hidden h-screen'>
         <div className='flex justify-between'>
           <h1 className='sm:px-10 px-3 pt-5 text-[24px] underline cursor-pointer'>
-            <Link href='/'>Todos List ISR and Revalidate</Link>
+            <Link href='/'>Todos ISR and Revalidate</Link>
           </h1>
           <h1 className='sm:px-10 px-3 pt-5 text-[24px] cursor-pointer'>
-            <Link href='/todo-list-SSR'>Todos List SSR </Link>
+            <Link href='/todo-list-SSR'>Todos SSR </Link>
           </h1>
         </div>
         <div className='grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-3 sm:px-10 p-3'>
@@ -81,6 +81,11 @@ export default function ListTodoSSR(todos: Todo | any) {
   );
 }
 
+/**
+ * 
+ * Render halaman todo menggunakan strategy SSR (https://nextjs.org/docs/basic-
+  features/data-fetching/get-server-side-props)
+ */
 export async function getServerSideProps() {
   let todos = [];
 
