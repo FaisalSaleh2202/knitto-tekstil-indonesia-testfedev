@@ -7,6 +7,7 @@ import {
 import ButtonAddNewTodo from '../components/ButtonAddNewTodo';
 import ReactPaginate from 'react-paginate';
 import Link from 'next/link';
+import Loader from '../components/Loader';
 
 export default function ListTodoSSR(todos: Todo | any) {
   const [page, setPage] = React.useState(0);
@@ -14,7 +15,7 @@ export default function ListTodoSSR(todos: Todo | any) {
   const { data: allDataTodo, isLoading: isLoadingAllDataTodo } =
     useGetTodosQuery();
 
-  if (isLoadingAllDataTodo) return <h1>Loading...</h1>;
+  if (isLoadingAllDataTodo) return <Loader />;;
 
   let getTodoPropsRtk = todos;
   getTodoPropsRtk = allDataTodo;
@@ -51,10 +52,10 @@ export default function ListTodoSSR(todos: Todo | any) {
       <main className='overflow-y-hidden h-screen'>
         <div className='flex justify-between'>
           <h1 className='sm:px-10 px-3 pt-5 text-[24px] underline cursor-pointer'>
-            <Link href='/'>Todos ISR and Revalidate</Link>
+            <Link href='/'>Todo List ISR and Revalidate</Link>
           </h1>
           <h1 className='sm:px-10 px-3 pt-5 text-[24px] cursor-pointer'>
-            <Link href='/todo-list-SSR'>Todos SSR </Link>
+            <Link href='/todo-list-SSR'>Todo List SSR </Link>
           </h1>
         </div>
         <div className='grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-3 sm:px-10 p-3'>

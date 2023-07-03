@@ -54,10 +54,10 @@ export default function Home(todos: Todo | any) {
       <main className='overflow-y-hidden h-screen'>
         <div className='flex justify-between'>
           <h1 className='sm:px-10 px-3 pt-5 text-[24px]'>
-            <Link href='/'>Todos List ISR and Revalidate</Link>
+            <Link href='/'>Todo List ISR and Revalidate</Link>
           </h1>
           <h1 className='sm:px-10 px-3 pt-5 text-[24px] underline cursor-pointer'>
-            <Link href='/todo-list-SSR'>Todos List SSR </Link>
+            <Link href='/todo-list-SSR'>Todo List SSR </Link>
           </h1>
         </div>
         <div className='grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-3 sm:px-10 p-3'>
