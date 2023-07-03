@@ -4,7 +4,7 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 
 const ButtonAddNewTodo = () => {
   return (
-    <div className='absolute bottom-0 right-0 mb-20 sm:mr-20 mr-10'>
+    <div className='absolute bottom-0 right-0 mb-32 sm:mr-20 mr-5'>
       <Link href='/add-todo'>
         <button className='h-14 w-14 bg-white text-black rounded-full'>
           <AiOutlinePlusCircle

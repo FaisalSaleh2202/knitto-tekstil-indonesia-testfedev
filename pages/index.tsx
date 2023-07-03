@@ -9,6 +9,7 @@ import {
 import ButtonAddNewTodo from '../components/ButtonAddNewTodo';
 import ReactPaginate from 'react-paginate';
 import Link from 'next/link';
+import Loader from '../components/Loader';
 
 export default function Home(todos: Todo | any) {
   const [page, setPage] = React.useState(0);
@@ -16,7 +17,7 @@ export default function Home(todos: Todo | any) {
   const { data: allDataTodo, isLoading: isLoadingAllDataTodo } =
     useGetTodosQuery();
 
-  if (isLoadingAllDataTodo) return <h1>Loading...</h1>;
+  if (isLoadingAllDataTodo) return <Loader />;
 
   let getTodoPropsRtk = todos;
   getTodoPropsRtk = allDataTodo;
